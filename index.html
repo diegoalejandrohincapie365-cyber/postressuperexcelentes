@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Postre Súper Excelente | Repostería con amor en El Carmen</title>
+<meta name="description" content="Postres artesanales en El Carmen: torta de chocolate, cheesecake, tiramisú, copa brownie, flan y cupcakes. Pedidos personalizados por WhatsApp.">
+<meta property="og:title" content="Postre Súper Excelente">
+<meta property="og:description" content="Dulzura que enamora. Haz tu pedido por WhatsApp.">
+<meta name="theme-color" content="#e8567f">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --choco:#4a1f14;
+  --choco-soft:#6b3a2c;
+  --rosa:#e8567f;
+  --rosa-dark:#c93a65;
+  --rosa-claro:#fde3ea;
+  --crema:#fff6ef;
+  --blanco:#ffffff;
+  --verde:#1fb855;
+  --verde-dark:#188f43;
+  --texto:#3a1d15;
+  --texto-suave:#7a5a52;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',system-ui,sans-serif;background:var(--crema);color:var(--texto);line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--rosa);outline-offset:3px;border-radius:6px}
+.script{font-family:'Pacifico',cursive;font-weight:400}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* Barra superior */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,246,239,.94);backdrop-filter:blur(8px);border-bottom:2px solid var(--rosa-claro)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{width:44px;height:44px;object-fit:cover;border-radius:50%}
+.brand span{font-family:'Pacifico',cursive;color:var(--choco);font-size:19px;line-height:1.1}
+.nav{display:flex;gap:22px;align-items:center}
+.nav a{text-decoration:none;font-weight:700;color:var(--choco-soft);font-size:15px}
+.nav a:hover{color:var(--rosa-dark)}
+.btn-cart{position:relative;background:var(--choco);color:#fff;border:0;border-radius:999px;padding:10px 18px;font:700 15px 'Nunito',sans-serif;cursor:pointer;display:flex;align-items:center;gap:8px}
+.btn-cart:hover{background:var(--choco-soft)}
+.btn-cart .count{background:var(--rosa);border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:13px;padding:0 6px}
+
+/* Hero */
+.hero{padding:44px 0 56px;background:
+  radial-gradient(circle at 85% 10%,var(--rosa-claro) 0,transparent 45%),
+  var(--crema)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
+.hero h1{font-size:clamp(34px,5.2vw,58px);line-height:1.12;color:var(--choco);margin-bottom:16px;font-weight:800}
+.hero h1 .script{color:var(--rosa);display:block;font-size:1.06em;margin-top:4px}
+.hero p.lead{font-size:18px;color:var(--texto-suave);max-width:46ch;margin-bottom:24px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:14px 26px;font:800 16px 'Nunito',sans-serif;text-decoration:none;cursor:pointer;transition:transform .15s,background .15s}
+.btn:active{transform:scale(.97)}
+.btn-rosa{background:var(--rosa);color:#fff}
+.btn-rosa:hover{background:var(--rosa-dark)}
+.btn-wa{background:var(--verde);color:#fff}
+.btn-wa:hover{background:var(--verde-dark)}
+.btn-line{background:transparent;color:var(--choco);box-shadow:inset 0 0 0 2px var(--choco)}
+.btn-line:hover{background:var(--choco);color:#fff}
+.perks{display:flex;flex-wrap:wrap;gap:10px 22px;list-style:none;font-weight:700;color:var(--choco-soft);font-size:15px}
+.perks li::before{content:"♥";color:var(--rosa);margin-right:8px}
+.hero-logo{justify-self:center;width:min(430px,100%);filter:drop-shadow(0 18px 30px rgba(74,31,20,.18))}
+.hero-logo img{border-radius:50%;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;animation:float 5s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* Secciones */
+section{padding:60px 0}
+.title{text-align:center;margin-bottom:36px}
+.title h2{font-size:clamp(28px,4vw,40px);color:var(--choco);font-weight:800;line-height:1.2}
+.title p{color:var(--texto-suave);margin-top:8px;font-size:17px}
+
+/* Menú */
+.menu{background:var(--blanco);border-radius:40px 40px 0 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:26px}
+.card{background:var(--crema);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;border:2px solid var(--rosa-claro)}
+.card .ph{aspect-ratio:3/2;overflow:hidden}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.card:hover .ph img{transform:scale(1.05)}
+.card .body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:21px;color:var(--choco);font-weight:800;margin-bottom:4px}
+.card p{color:var(--texto-suave);font-size:15px;flex:1}
+.card .row{display:flex;align-items:center;justify-content:space-between;margin-top:16px;gap:10px}
+.price{font-size:24px;font-weight:800;color:var(--rosa-dark)}
+.add{background:var(--rosa);color:#fff;border:0;border-radius:999px;padding:11px 20px;font:800 15px 'Nunito',sans-serif;cursor:pointer}
+.add:hover{background:var(--rosa-dark)}
+
+/* Precios vs competencia */
+.card{position:relative}
+.badge{position:absolute;top:12px;left:12px;background:var(--verde);color:#fff;font-weight:800;font-size:13px;padding:5px 12px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.2)}
+.prices{display:flex;flex-direction:column;line-height:1.15}
+.old{font-size:14px;color:var(--texto-suave);text-decoration:line-through}
+.old small{text-decoration:none;font-size:12px}
+.nequi{background:#fff;border:2px solid #da0081;border-radius:16px;padding:12px 14px;font-size:14px;color:var(--texto)}
+.nequi b{color:#da0081}
+.nequi .num{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px;font-size:20px;font-weight:800;color:var(--choco)}
+.copy{background:#da0081;color:#fff;border:0;border-radius:999px;padding:7px 14px;font:800 13px 'Nunito',sans-serif;cursor:pointer}
+.copy:hover{background:#b80069}
+.pay-box{display:inline-block;background:#fff;color:var(--choco);border-radius:18px;padding:14px 22px;margin-top:18px;font-weight:700}
+.pay-box b{color:#da0081;font-size:22px;display:block}
+footer img{width:84px;height:84px;border-radius:50%;margin:0 auto 10px}
+
+/* Por qué */
+.why{background:var(--blanco)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.why-item{background:var(--rosa-claro);border-radius:22px;padding:24px 22px}
+.why-item .ico{font-size:34px;margin-bottom:8px}
+.why-item h3{color:var(--choco);font-size:19px;margin-bottom:4px}
+.why-item p{color:var(--choco-soft);font-size:15px}
+
+/* Cómo pedir */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;counter-reset:s;list-style:none}
+.steps li{counter-increment:s;background:var(--blanco);border-radius:22px;padding:24px 22px 22px;border:2px dashed var(--rosa)}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--choco);color:#fff;font-weight:800;margin-bottom:10px}
+.steps h3{color:var(--choco);font-size:18px;margin-bottom:4px}
+.steps p{color:var(--texto-suave);font-size:15px}
+
+/* Contacto */
+.contact{background:var(--rosa);color:#fff;text-align:center;border-radius:40px;margin:0 20px}
+.contact h2{font-size:clamp(28px,4vw,40px);margin-bottom:10px}
+.contact p{font-size:18px;margin-bottom:22px;opacity:.95}
+.contact .btn-wa{background:#fff;color:var(--verde-dark);font-size:18px}
+.contact .btn-wa:hover{background:var(--crema)}
+.contact .where{margin-top:20px;font-weight:700}
+
+footer{text-align:center;padding:34px 20px 90px;color:var(--texto-suave);font-size:15px}
+footer .script{color:var(--rosa-dark);font-size:20px;display:block;margin-bottom:4px}
+
+/* WhatsApp flotante */
+.fab{position:fixed;right:18px;bottom:18px;z-index:60;width:60px;height:60px;border-radius:50%;background:var(--verde);display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.25);text-decoration:none}
+.fab:hover{background:var(--verde-dark)}
+.fab svg{width:32px;height:32px;fill:#fff}
+
+/* Carrito (panel lateral) */
+.overlay{position:fixed;inset:0;background:rgba(58,29,21,.5);opacity:0;pointer-events:none;transition:opacity .25s;z-index:70}
+.overlay.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(440px,100%);background:var(--blanco);z-index:80;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column;box-shadow:-10px 0 30px rgba(0,0,0,.2)}
+.drawer.open{transform:none}
+.drawer header{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:2px solid var(--rosa-claro)}
+.drawer header h2{font-size:22px;color:var(--choco)}
+.close{background:var(--rosa-claro);border:0;border-radius:50%;width:38px;height:38px;font-size:20px;cursor:pointer;color:var(--choco)}
+.drawer .items{flex:1;overflow:auto;padding:8px 20px}
+.empty{text-align:center;color:var(--texto-suave);padding:40px 10px}
+.item{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--rosa-claro)}
+.item img{width:58px;height:58px;border-radius:12px;object-fit:cover}
+.item .t{flex:1;min-width:0}
+.item .t b{display:block;font-size:15px;color:var(--choco)}
+.item .t span{font-size:14px;color:var(--texto-suave)}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{width:30px;height:30px;border-radius:50%;border:0;background:var(--rosa-claro);color:var(--choco);font:800 18px 'Nunito',sans-serif;cursor:pointer}
+.qty button:hover{background:var(--rosa);color:#fff}
+.qty span{min-width:18px;text-align:center;font-weight:800}
+.checkout{padding:16px 20px 20px;border-top:2px solid var(--rosa-claro);display:grid;gap:10px;background:var(--crema)}
+.total{display:flex;justify-content:space-between;font-size:22px;font-weight:800;color:var(--choco)}
+.saving{font-size:14px;font-weight:800;color:var(--verde-dark);text-align:right;margin-top:-6px}
+.total span:last-child{color:var(--rosa-dark)}
+.checkout input,.checkout textarea{width:100%;padding:12px 14px;border:2px solid var(--rosa-claro);border-radius:14px;font:inherit;background:#fff;color:var(--texto)}
+.checkout input:focus,.checkout textarea:focus{outline:none;border-color:var(--rosa)}
+.checkout .btn{width:100%}
+.link-clear{background:none;border:0;color:var(--texto-suave);text-decoration:underline;cursor:pointer;font:600 14px 'Nunito',sans-serif;justify-self:center}
+.error{color:#c0224d;font-size:14px;font-weight:700;min-height:18px}
+
+.toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);background:var(--choco);color:#fff;padding:12px 20px;border-radius:999px;font-weight:700;opacity:0;pointer-events:none;transition:.25s;z-index:90;white-space:nowrap}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:820px){
+  .nav a{display:none}
+  .hero .wrap{grid-template-columns:1fr;text-align:center}
+  .hero p.lead{margin-inline:auto}
+  .hero-actions,.perks{justify-content:center}
+  .hero-logo{order:-1;width:min(280px,70%)}
+  .contact{margin:0 10px;border-radius:28px}
+  section{padding:46px 0}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Postre Súper Excelente, inicio">
+      <img src="images/logo.webp" alt="Logo Postre Súper Excelente" width="44" height="44">
+      <span>Postre Súper Excelente</span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#menu">Postres</a>
+      <a href="#por-que">Por qué elegirnos</a>
+      <a href="#como-pedir">Cómo pedir</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="btn-cart" id="openCart" aria-label="Abrir pedido">🛒 Mi pedido <span class="count" id="count">0</span></button>
+  </div>
+</div>
+
+<header class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <h1>Dulzura que enamora <span class="script">¡Dale un dulce momento a tu día!</span></h1>
+      <p class="lead">Postres artesanales con ingredientes frescos y de calidad, hechos con amor en El Carmen. Elige, arma tu pedido y envíanoslo por WhatsApp.</p>
+      <div class="hero-actions">
+        <a class="btn btn-rosa" href="#menu">Ver postres</a>
+        <a class="btn btn-wa" id="heroWa" href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+      </div>
+      <ul class="perks">
+        <li>Hechos con amor</li>
+        <li>Ingredientes frescos</li>
+        <li>Pedidos personalizados</li>
+        <li>$2.000 menos que la competencia</li>
+      </ul>
+    </div>
+    <div class="hero-logo">
+      <img src="images/logo.webp" alt="Postre Súper Excelente, repostería con amor" width="800" height="800">
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="title">
+      <h2>Nuestros postres</h2>
+      <p>Desde $5.000 — siempre $2.000 menos que la competencia.</p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="why" id="por-que">
+  <div class="wrap">
+    <div class="title">
+      <h2>¿Por qué elegirnos?</h2>
+      <p>Somos un emprendimiento local dedicado a los postres artesanales.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item"><div class="ico">👩‍🍳</div><h3>Recetas caseras y exclusivas</h3><p>Sabores que no encuentras en otro lado.</p></div>
+      <div class="why-item"><div class="ico">💬</div><h3>Atención personalizada</h3><p>Te asesoramos para tu pedido o celebración.</p></div>
+      <div class="why-item"><div class="ico">⏰</div><h3>Puntualidad en los pedidos</h3><p>Tu postre llega cuando lo necesitas.</p></div>
+      <div class="why-item"><div class="ico">💰</div><h3>Precios justos</h3><p>Calidad artesanal, siempre $2.000 por debajo de la competencia.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="como-pedir">
+  <div class="wrap">
+    <div class="title">
+      <h2>Pide en tres pasos</h2>
+      <p>Sin registros: armas tu pedido, pagas por Nequi y confirmamos por WhatsApp.</p>
+    </div>
+    <ol class="steps">
+      <li><h3>Elige tus postres</h3><p>Pulsa “Agregar” en los que quieras y ajusta las cantidades.</p></li>
+      <li><h3>Completa tus datos</h3><p>Escribe tu nombre y dónde entregamos tu pedido.</p></li>
+      <li><h3>Envía y paga por Nequi</h3><p>Envía el pedido por WhatsApp, paga por Nequi al <b class="nequi-num"></b> y manda el comprobante.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <h2>¡Haz tu pedido!</h2>
+    <p>¿Una torta para una ocasión especial o un antojo? Escríbenos.</p>
+    <a class="btn btn-wa" id="contactWa" href="#" target="_blank" rel="noopener">WhatsApp 314 501 2895</a>
+    <div class="pay-box">💜 Pagos por Nequi<b class="nequi-num"></b></div>
+    <p class="where">📍 Estamos ubicados en El Carmen</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <img src="images/logo.webp" alt="Logo Postre Súper Excelente" width="84" height="84">
+  <span class="script">Postre Súper Excelente</span>
+  El detalle perfecto para cada ocasión.
+</footer>
+
+<a class="fab" id="fabWa" href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.004 3C9.38 3 4 8.376 4 15c0 2.116.553 4.18 1.6 6L4 29l8.2-1.57A11.95 11.95 0 0 0 16.004 27C22.628 27 28 21.624 28 15S22.628 3 16.004 3zm0 21.8c-1.86 0-3.68-.5-5.27-1.44l-.38-.22-4.87.93.95-4.74-.25-.4A9.78 9.78 0 0 1 6.2 15c0-5.42 4.4-9.82 9.804-9.82S25.8 9.58 25.8 15s-4.4 9.8-9.796 9.8zm5.4-7.35c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg>
+</a>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Mi pedido" aria-hidden="true">
+  <header>
+    <h2>🛒 Mi pedido</h2>
+    <button class="close" id="closeCart" aria-label="Cerrar">✕</button>
+  </header>
+  <div class="items" id="items"></div>
+  <div class="checkout">
+    <div class="total"><span>Total</span><span>$<span id="total">0</span></span></div>
+    <div class="saving" id="saving"></div>
+    <input id="name" placeholder="Tu nombre" autocomplete="name">
+    <input id="address" placeholder="Dirección o lugar de entrega" autocomplete="street-address">
+    <textarea id="note" rows="2" placeholder="Observaciones (opcional): sabores, fecha, mensaje..."></textarea>
+    <div class="nequi">
+      💜 <b>Pago por Nequi</b> — transfiere el total a:
+      <div class="num"><span id="nequiNum"></span><button type="button" class="copy" id="copyNequi">Copiar</button></div>
+      <small>Luego envía el comprobante por WhatsApp.</small>
+    </div>
+    <div class="error" id="error" role="alert"></div>
+    <button class="btn btn-wa" id="send">Enviar pedido por WhatsApp</button>
+    <button class="link-clear" id="clear">Vaciar pedido</button>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const PHONE = "573145012895";   // WhatsApp: 314 501 2895 (Colombia)
+const NEQUI = "314 501 2895";   // Número Nequi para recibir pagos (cámbialo aquí si es otro)
+const DISCOUNT = 2000;          // Cada postre cuesta $2.000 menos que la competencia
+
+const products = [
+  {id:1, name:"Torta de Chocolate", comp:25000, img:"images/torta-chocolate.svg", desc:"Bizcocho húmedo de chocolate con relleno y cobertura de chocolate."},
+  {id:2, name:"Cheesecake de Frutos Rojos", comp:15000, img:"images/cheesecake.svg", desc:"Suave cheesecake con base de galleta y topping de frutos rojos naturales."},
+  {id:3, name:"Tiramisú", comp:14000, img:"images/tiramisu.svg", desc:"Clásico postre italiano con café, queso mascarpone y cacao."},
+  {id:4, name:"Copa Brownie", comp:12000, img:"images/copa-brownie.svg", desc:"Delicioso brownie en capas con crema, arequipe y trocitos de chocolate."},
+  {id:5, name:"Flan Casero", comp:8000, img:"images/flan.svg", desc:"Tradicional flan casero con el toque justo de caramelo."},
+  {id:6, name:"Cupcakes", comp:7000, img:"images/cupcakes.svg", desc:"Esponjosos cupcakes en diferentes sabores y decoraciones."}
+];
+
+// Precio nuestro = precio competencia - DISCOUNT
+products.forEach(p => p.price = p.comp - DISCOUNT);
+
+let cart = [];
+try { cart = JSON.parse(localStorage.getItem("pse-cart") || "[]").filter(i => products.some(p => p.id === i.id)).map(i => ({...products.find(p => p.id === i.id), qty:i.qty})); } catch(e){ cart = []; }
+const $ = id => document.getElementById(id);
+const money = n => n.toLocaleString("es-CO");
+const waLink = text => `https://wa.me/${PHONE}` + (text ? `?text=${encodeURIComponent(text)}` : "");
+
+// Enlaces de WhatsApp generales
+const hello = "Hola, quiero hacer un pedido en Postre Súper Excelente.";
+["heroWa","contactWa","fabWa"].forEach(id => $(id).href = waLink(hello));
+
+// Menú
+$("grid").innerHTML = products.map(p => `
+  <article class="card">
+    <span class="badge">−$${money(DISCOUNT)} vs competencia</span>
+    <div class="ph"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
+    <div class="body">
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+      <div class="row">
+        <div class="prices">
+          <span class="old"><small>Competencia</small> $${money(p.comp)}</span>
+          <span class="price">$${money(p.price)}</span>
+        </div>
+        <button class="add" data-id="${p.id}">Agregar</button>
+      </div>
+    </div>
+  </article>`).join("");
+
+$("grid").addEventListener("click", e => {
+  const b = e.target.closest(".add");
+  if (b) add(Number(b.dataset.id));
+});
+
+function add(id){
+  const found = cart.find(i => i.id === id);
+  if (found) found.qty++;
+  else cart.push({...products.find(p => p.id === id), qty:1});
+  render();
+  toast("Agregado al pedido ✔");
+}
+function change(id, n){
+  const it = cart.find(i => i.id === id);
+  if (!it) return;
+  it.qty += n;
+  if (it.qty <= 0) cart = cart.filter(i => i.id !== id);
+  render();
+}
+const totalValue = () => cart.reduce((s,i) => s + i.price*i.qty, 0);
+
+function render(){
+  try { localStorage.setItem("pse-cart", JSON.stringify(cart.map(i => ({id:i.id, qty:i.qty})))); } catch(e){}
+  const saved = cart.reduce((s,i) => s + DISCOUNT*i.qty, 0);
+  $("saving").textContent = saved ? `¡Ahorras $${money(saved)} frente a la competencia!` : "";
+  $("count").textContent = cart.reduce((s,i) => s + i.qty, 0);
+  $("total").textContent = money(totalValue());
+  $("items").innerHTML = cart.length ? cart.map(i => `
+    <div class="item">
+      <img src="${i.img}" alt="">
+      <div class="t"><b>${i.name}</b><span>$${money(i.price)} × ${i.qty} = $${money(i.price*i.qty)}</span></div>
+      <div class="qty">
+        <button data-id="${i.id}" data-n="-1" aria-label="Quitar uno">−</button>
+        <span>${i.qty}</span>
+        <button data-id="${i.id}" data-n="1" aria-label="Agregar uno">+</button>
+      </div>
+    </div>`).join("")
+    : `<div class="empty">Tu pedido está vacío.<br>Agrega un postre del menú.</div>`;
+}
+$("items").addEventListener("click", e => {
+  const b = e.target.closest("button[data-id]");
+  if (b) change(Number(b.dataset.id), Number(b.dataset.n));
+});
+
+// Nequi
+$("nequiNum").textContent = NEQUI;
+document.querySelectorAll(".nequi-num").forEach(el => el.textContent = NEQUI);
+$("copyNequi").onclick = async () => {
+  try { await navigator.clipboard.writeText(NEQUI.replace(/\s/g,"")); toast("Número Nequi copiado ✔"); }
+  catch(e){ toast("Nequi: " + NEQUI); }
+};
+
+// Panel del pedido
+function openCart(){ $("drawer").classList.add("open"); $("overlay").classList.add("open"); $("drawer").setAttribute("aria-hidden","false"); }
+function closeCart(){ $("drawer").classList.remove("open"); $("overlay").classList.remove("open"); $("drawer").setAttribute("aria-hidden","true"); }
+$("openCart").onclick = openCart;
+$("closeCart").onclick = closeCart;
+$("overlay").onclick = closeCart;
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeCart(); });
+$("clear").onclick = () => { cart = []; render(); };
+
+// Enviar a WhatsApp
+$("send").onclick = () => {
+  const err = $("error");
+  const name = $("name").value.trim();
+  const address = $("address").value.trim();
+  const note = $("note").value.trim();
+  err.textContent = "";
+  if (!cart.length){ err.textContent = "Agrega al menos un postre a tu pedido."; return; }
+  if (!name || !address){ err.textContent = "Escribe tu nombre y dónde entregamos el pedido."; return; }
+
+  let msg = "🍰 *PEDIDO - POSTRE SÚPER EXCELENTE*\n\n";
+  msg += `👤 Nombre: ${name}\n📍 Entrega: ${address}\n\n`;
+  cart.forEach(i => { msg += `• ${i.name} x${i.qty} — $${money(i.price*i.qty)}\n`; });
+  msg += `\n💰 *Total: $${money(totalValue())}*`;
+  msg += `\n💜 Pago: Nequi al ${NEQUI} (enviaré el comprobante)`;
+  if (note) msg += `\n📝 Observaciones: ${note}`;
+  window.open(waLink(msg), "_blank", "noopener");
+};
+
+let t;
+function toast(text){
+  const el = $("toast");
+  el.textContent = text;
+  el.classList.add("show");
+  clearTimeout(t);
+  t = setTimeout(() => el.classList.remove("show"), 1400);
+}
+
+render();
+</script>
+</body>
+</html>
